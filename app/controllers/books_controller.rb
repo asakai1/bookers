@@ -7,13 +7,14 @@ class BooksController < ApplicationController
   def create
     book = Book.new(list_params)
     book.save
-    redirect_to '/books/new'
+    redirect_to list_path(list.id)
   end
 
   def index
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit
